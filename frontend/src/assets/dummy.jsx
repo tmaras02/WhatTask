@@ -47,12 +47,12 @@ const backendDummy = [
 
 // assets/formConstants.js
 export const baseControlClasses =
-    "w-full px-4 py-2.5 border border-orange-100 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-orange-500 text-sm";
+    "w-full px-4 py-2.5 border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-500 text-sm";
 
 export const priorityStyles = {
     Low: "bg-green-100 text-green-700 border-green-200",
-    Medium: "bg-yellow-100 text-yellow-700 border-orange-200",
-    High: "bg-orange-100 text-orange-700 border-orange-200",
+    Medium: "bg-orange-100 text-orange-600 border-orange-200",
+    High: "bg-red-100 text-red-600 border-red-200",
 };
 
 // data/defaultTask.js
@@ -67,18 +67,18 @@ export const DEFAULT_TASK = {
 
 // LOGIN CSS
 export const INPUTWRAPPER =
-    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-yellow-500 focus-within:border-orange-500 transition-all duration-200"
+    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-orange-600 focus-within:border-orange-500 transition-all duration-200"
 export const BUTTON_CLASSES =
-    "w-full bg-gradient-to-r from-orange-500 to-yellow-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+    "w-full bg-gradient-to-r from-orange-600 to-yellow-400 text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
 
 // PROFILE CSS
 export const INPUT_WRAPPER =
-    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-yellow-500 focus-within:border-orange-500 transition-all duration-200"
+    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-orange-600 focus-within:border-orange-500 transition-all duration-200"
 export const FULL_BUTTON =
     "w-full bg-gradient-to-r from-orange-600 to-yellow-400 text-white py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
 export const SECTION_WRAPPER = "bg-white rounded-xl shadow-sm border border-orange-100 p-6"
 export const BACK_BUTTON =
-    "flex items-center text-gray-600 hover:text-yellow-600 mb-8 transition-colors duration-200"
+    "flex items-center text-gray-600 hover:text-orange-600 mb-8 transition-colors duration-200"
 export const DANGER_BTN =
     "w-full text-red-600 border border-red-200 py-2.5 rounded-lg hover:bg-red-50 transition-colors duration-200"
 
@@ -95,38 +95,38 @@ export const securityFields = [
 
 // SIDEBAR 
 export const menuItems = [
-    { text: "Dashboard", path: "/", icon: <Home className="w-5 h-5" /> },
-    { text: "Pending Tasks", path: "/pending", icon: <ListChecks className="w-5 h-5" /> },
-    { text: "Completed Tasks", path: "/complete", icon: <CheckCircle2 className="w-5 h-5" /> },
+    { text: "Dashboard", path: "/", icon: <Home className="w-5 h-5 text-orange-600" /> },
+    { text: "Pending Tasks", path: "/pending", icon: <ListChecks className="w-5 h-5 text-orange-600" /> },
+    { text: "Completed Tasks", path: "/complete", icon: <CheckCircle2 className="w-5 h-5 text-orange-600" /> },
 ]
 
 export const SIDEBAR_CLASSES = {
     desktop: "hidden md:flex flex-col fixed h-full w-20 lg:w-64 bg-white/90 backdrop-blur-sm border-r border-orange-100 shadow-sm z-20 transition-all duration-300",
-    mobileButton: "absolute md:hidden top-25 left-5 z-50 bg-yellow-600 text-white p-2 rounded-full shadow-lg hover:bg-yellow-700 transition",
+    mobileButton: "absolute md:hidden top-25 left-5 z-50 bg-orange-600 text-white p-2 rounded-full shadow-lg hover:bg-orange-700 transition",
     mobileDrawerBackdrop: "fixed inset-0 bg-black/40 backdrop-blur-sm",
     mobileDrawer: "absolute top-0 left-0 w-64 h-full bg-white/90 backdrop-blur-md border-r border-orange-100 shadow-lg z-50 p-4 flex flex-col space-y-6",
 }
 
 export const LINK_CLASSES = {
     base: "group flex items-center px-4 py-3 rounded-xl transition-all duration-300",
-    active: "bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-orange-500 text-yellow-700 font-medium shadow-sm",
-    inactive: "hover:bg-yellow-50/50 text-gray-600 hover:text-yellow-700",
-    icon: "transition-transform duration-300 group-hover:scale-110 text-yellow-500",
+    active: "bg-orange-50 border-l-4 border-orange-600 text-orange-600 font-medium shadow-sm",
+    inactive: "hover:bg-orange-50/50 text-gray-600 hover:text-orange-600",
+    icon: "transition-transform duration-300 group-hover:scale-110 text-orange-600",
     text: "text-sm font-medium ml-2",
 }
 
 export const PRODUCTIVITY_CARD = {
-    container: "bg-yellow-50/50 rounded-xl p-3 border border-orange-100",
+    container: "bg-orange-50 rounded-xl p-3 border border-orange-100",
     header: "flex items-center justify-between mb-2",
-    label: "text-xs font-semibold text-yellow-700",
-    badge: "text-xs bg-yellow-200 text-yellow-700 px-2 py-0.5 rounded-full",
-    barBg: "w-full h-2 bg-yellow-200 rounded-full overflow-hidden",
-    barFg: "h-full bg-gradient-to-r from-orange-500 to-yellow-600 animate-pulse",
+    label: "text-xs font-semibold text-orange-600",
+    badge: "text-xs bg-orange-200 text-orange-600 px-2 py-0.5 rounded-full",
+    barBg: "w-full h-2 bg-orange-200 rounded-full overflow-hidden",
+    barFg: "h-full bg-gradient-to-r from-orange-600 to-yellow-400 animate-pulse",
 }
 
 export const TIP_CARD = {
-    container: "bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-4 border border-orange-100",
-    iconWrapper: "p-2 bg-yellow-100 rounded-lg",
+    container: "bg-orange-50 rounded-xl p-4 border border-orange-100",
+    iconWrapper: "p-2 bg-orange-200 rounded-lg",
     title: "text-sm font-semibold text-gray-800",
     text: "text-xs text-gray-600 mt-1",
 }
@@ -139,7 +139,7 @@ export const FIELDS = [
 ]
 
 export const Inputwrapper =
-    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-yellow-500 focus-within:border-orange-500 transition-all duration-200"
+    "flex items-center border border-orange-100 rounded-lg px-3 py-2.5 focus-within:ring-2 focus-within:ring-orange-600 focus-within:border-orange-500 transition-all duration-200"
 export const BUTTONCLASSES =
     "w-full bg-gradient-to-r from-orange-600 to-yellow-400 text-white text-sm font-semibold py-2.5 rounded-lg hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
 export const MESSAGE_SUCCESS = "bg-green-50 text-green-600 p-3 rounded-lg text-sm mb-4 border border-green-100"
@@ -148,18 +148,18 @@ export const MESSAGE_ERROR = "bg-red-50 text-red-600 p-3 rounded-lg text-sm mb-4
 // TASK ITEM
 export const getPriorityColor = (priority) => {
     const colors = {
-        low: "border-green-500 bg-green-50/50 text-green-700",
-        medium: "border-orange-500 bg-yellow-50/50 text-yellow-600",
-        high: "border-orange-800 bg-orange-50/50 text-orange-800",
+        low: "border-green-600 bg-green-100 text-green-700",
+        medium: "border-orange-600 bg-orange-100 text-orange-500",
+        high: "border-red-600 bg-red-100 text-red-700",
     }
     return colors[priority?.toLowerCase()] || "border-gray-500 bg-gray-50/50 text-gray-700"
 }
 
 export const getPriorityBadgeColor = (priority) => {
     const colors = {
-        low: "bg-green-100 text-green-900",
-        medium: "bg-yellow-100 text-yellow-900",
-        high: "bg-orange-300 text-orange-900",
+        low: "bg-green-100 text-green-700",
+        medium: "bg-orange-100 text-orange-600",
+        high: "bg-red-100 text-red-600",
     }
     return colors[priority?.toLowerCase()] || "bg-gray-100 text-gray-700"
 }
@@ -179,7 +179,7 @@ export const LABEL_CLASS = "text-xs text-gray-500 truncate"
 
 // Stats definitions
 export const STATS = [
-    { key: "total", label: "Total Tasks", icon: HomeIcon, iconColor: "bg-yellow-100 text-yellow-600", valueKey: "total", gradient: true },
+    { key: "total", label: "Total Tasks", icon: HomeIcon, iconColor: "bg-blue-100 text-blue-600", valueKey: "total", textColor: "text-blue-600" },
     { key: "lowPriority", label: "Low Priority", icon: Flame, iconColor: "bg-green-100 text-green-600", borderColor: "border-green-100", valueKey: "lowPriority", textColor: "text-green-600" },
     { key: "mediumPriority", label: "Medium Priority", icon: Flame, iconColor: "bg-orange-100 text-orange-600", borderColor: "border-orange-100", valueKey: "mediumPriority", textColor: "text-orange-600" },
     { key: "highPriority", label: "High Priority", icon: Flame, iconColor: "bg-red-100 text-red-600", borderColor: "border-red-100", valueKey: "highPriority", textColor: "text-red-600" },
@@ -199,17 +199,17 @@ export const FILTER_LABELS = {
 // Empty state
 export const EMPTY_STATE = {
     wrapper: "p-6 bg-white rounded-xl shadow-sm border border-orange-100 text-center",
-    iconWrapper: "w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4",
+    iconWrapper: "w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4",
     btn: "px-4 py-2 bg-gradient-to-r from-orange-600 to-yellow-400 text-white rounded-lg text-sm font-medium",
 }
 
 // Filter UI Constants
 export const FILTER_WRAPPER = "flex items-center justify-between bg-white p-4 rounded-xl shadow-sm"
-export const SELECT_CLASSES = "px-3 py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-yellow-500 md:hidden text-sm"
-export const TABS_WRAPPER = "hidden md:flex space-x-1 bg-yellow-50 p-1 rounded-lg"
+export const SELECT_CLASSES = "px-3 py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-600 md:hidden text-sm"
+export const TABS_WRAPPER = "hidden md:flex space-x-1 bg-orange-100 p-1 rounded-lg"
 export const TAB_BASE = "px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
-export const TAB_ACTIVE = "bg-white text-yellow-700 shadow-sm border"
-export const TAB_INACTIVE = "text-gray-600 hover:bg-yellow-100/50"
+export const TAB_ACTIVE = "bg-white text-orange-600 shadow-sm border"
+export const TAB_INACTIVE = "text-gray-600 hover:bg-orange-100/50"
 
 
 // COMPLETE TASK
@@ -229,14 +229,14 @@ export const CT_CLASSES = {
     sortContainer: "w-full md:w-auto mt-2 md:mt-0",
     sortBox: "flex items-center justify-between bg-white p-2 md:p-3 rounded-xl shadow-sm border border-orange-100 w-full md:w-auto",
     filterLabel: "flex items-center gap-2 text-gray-700 font-medium",
-    select: "px-2 py-1 md:px-3 md:py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-yellow-500 md:hidden text-xs md:text-sm",
-    btnGroup: "hidden md:flex space-x-1 bg-yellow-50 p-1 rounded-lg ml-2 md:ml-3",
+    select: "px-2 py-1 md:px-3 md:py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-600 md:hidden text-xs md:text-sm",
+    btnGroup: "hidden md:flex space-x-1 bg-orange-50 p-1 rounded-lg ml-2 md:ml-3",
     btnBase: "px-2 py-1 md:px-3 md:py-1.5 rounded-lg text-xs font-medium transition-all duration-200 flex items-center gap-1",
-    btnActive: "bg-white text-yellow-700 shadow-sm border border-orange-100",
-    btnInactive: "text-gray-600 hover:text-yellow-700 hover:bg-yellow-100/50",
+    btnActive: "bg-white text-orange-600 shadow-sm border border-orange-100",
+    btnInactive: "text-gray-600 hover:text-orange-600 hover:bg-orange-100/50",
     list: "space-y-3 md:space-y-4",
     emptyState: "p-4 md:p-8 bg-white rounded-xl shadow-sm border border-orange-100 text-center",
-    emptyIconWrapper: "w-12 h-12 md:w-16 md:h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4",
+    emptyIconWrapper: "w-12 h-12 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4",
     emptyTitle: "text-base md:text-lg font-semibold text-gray-800 mb-2",
     emptyText: "text-xs md:text-sm text-gray-500",
 }
@@ -246,41 +246,41 @@ export const layoutClasses = {
     container: "p-6 min-h-screen overflow-hidden",
     headerWrapper: "flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4",
     sortBox: "flex items-center justify-between bg-white p-3 rounded-xl shadow-sm border border-orange-100 w-full md:w-auto",
-    select: "px-3 py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-yellow-500 md:hidden text-sm",
-    tabWrapper: "hidden md:flex space-x-1 bg-yellow-50 p-1 rounded-lg ml-3",
+    select: "px-3 py-2 border border-orange-100 rounded-lg focus:ring-2 focus:ring-orange-500 md:hidden text-sm",
+    tabWrapper: "hidden md:flex space-x-1 bg-orange-50 p-1 rounded-lg ml-3",
     tabButton: (active) =>
         `px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${active
-            ? "bg-white text-yellow-700 shadow-sm border border-orange-100"
-            : "text-gray-600 hover:text-yellow-700 hover:bg-yellow-100/50"
+            ? "bg-white text-orange-600 shadow-sm border border-orange-100"
+            : "text-gray-600 hover:text-orange-700 hover:bg-orange-100/50"
         }`,
-    addBox: "hidden md:block p-5 border-2 border-dashed border-orange-200 rounded-xl hover:border-orange-400 transition-colors cursor-pointer mb-6 bg-yellow-50/50 group",
+    addBox: "hidden md:block p-5 border-2 border-dashed border-orange-200 rounded-xl hover:border-orange-400 transition-colors cursor-pointer mb-6 bg-orange-50/50 group",
     emptyState: "p-8 bg-white rounded-xl shadow-sm border border-orange-100 text-center",
-    emptyIconBg: "w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4",
-    emptyBtn: "px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 rounded-lg text-sm font-medium transition-colors",
+    emptyIconBg: "w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4",
+    emptyBtn: "px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-600 rounded-lg text-sm font-medium transition-colors",
 };
 
 
 // TASK ITEM
 // Menu options for task actions
 export const MENU_OPTIONS = [
-    { action: "edit", label: "Edit Task", icon: <Edit2 size={14} className="text-yellow-600" /> },
+    { action: "edit", label: "Edit Task", icon: <Edit2 size={14} className="text-orange-600" /> },
     { action: "delete", label: "Delete Task", icon: <Trash2 size={14} className="text-red-600" /> },
 ]
 
 // CSS class groups for TaskItem
 export const TI_CLASSES = {
-    wrapper: "group p-4 sm:p-5 rounded-xl shadow-sm bg-white border-l-4 hover:shadow-md transition-all duration-300 border border-orange-100",
+    wrapper: "group p-4 sm:p-5 rounded-xl shadow-sm bg-white border-l-4 hover:shadow-md transition-all duration-300 border",
     leftContainer: "flex items-start gap-2 sm:gap-3 flex-1 min-w-0",
-    completeBtn: "mt-0.5 sm:mt-1 p-1 sm:p-1.5 rounded-full hover:bg-yellow-100 transition-colors duration-300",
+    completeBtn: "mt-0.5 sm:mt-1 p-1 sm:p-1.5 rounded-full hover:bg-orange-100 transition-colors duration-300",
     checkboxIconBase: "w-4 h-4 sm:w-5 sm:h-5",
     titleBase: "text-base sm:text-lg font-medium truncate",
     priorityBadge: "text-xs px-2 py-0.5 rounded-full shrink-0",
     description: "text-sm text-gray-500 mt-1 truncate",
-    subtasksContainer: "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-yellow-50/30 p-2 sm:p-3 rounded-lg border border-orange-100",
-    progressBarBg: "h-1.5 bg-yellow-100 rounded-full overflow-hidden",
-    progressBarFg: "h-full bg-gradient-to-r from-orange-500 to-yellow-600 transition-all duration-300",
+    subtasksContainer: "mt-3 sm:mt-4 space-y-2 sm:space-y-3 bg-orange-50/30 p-2 sm:p-3 rounded-lg border border-orange-100",
+    progressBarBg: "h-1.5 bg-orange-100 rounded-full overflow-hidden",
+    progressBarFg: "h-full bg-gradient-to-r from-orange-600 to-yellow-400 transition-all duration-300",
     rightContainer: "flex flex-col items-end gap-2 sm:gap-3",
-    menuButton: "p-1 sm:p-1.5 hover:bg-yellow-100 rounded-lg text-gray-500 hover:text-yellow-700 transition-colors duration-200",
+    menuButton: "p-1 sm:p-1.5 hover:bg-orange-100 rounded-lg text-gray-500 hover:text-orange-600 transition-colors duration-200",
     menuDropdown: "absolute right-0 mt-1 w-40 sm:w-48 bg-white border border-orange-100 rounded-xl shadow-lg z-10 overflow-hidden animate-fadeIn",
     dateRow: "flex items-center gap-1.5 text-xs font-medium whitespace-nowrap",
     createdRow: "flex items-center gap-1.5 text-xs text-gray-400 whitespace-nowrap",

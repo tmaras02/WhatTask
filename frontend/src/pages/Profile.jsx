@@ -7,7 +7,6 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:4000'
 
-
 const Profile = ({setCurrentUser, onLogout}) => {
 
     const [profile, setProfile] = useState({name: '', email: '',})
@@ -54,7 +53,8 @@ const Profile = ({setCurrentUser, onLogout}) => {
             }))
             toast.success("Profile updated successfully!")
         }else toast.error(data.message)
-    } catch (err) {
+    } 
+    catch (err) {
         toast.error(err.response?.data?.message || "An error occurred while updating profile data")
     }
   }
@@ -153,7 +153,7 @@ const Profile = ({setCurrentUser, onLogout}) => {
                         <LogOut className='w-5 h-5' /> Danger Zone
                       </h3>
                       <button className={DANGER_BTN} onClick={onLogout} >
-                        Logout 
+                        Logout
                       </button>
                     </div>
                 </form>

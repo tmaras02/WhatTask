@@ -15,7 +15,7 @@ const Layout = ({user , onLogout  }) => {
         setLoading(true)
 
         try {
-            const token = localStorage.getItem('token')
+            const token = localStorage.getItem('token') || sessionStorage.getItem('token')
             if(!token){throw new Error("No auth token found")}
 
             const {data}=await axios.get("http://localhost:4000/api/tasks/gp", {
@@ -64,11 +64,11 @@ const Layout = ({user , onLogout  }) => {
     const StatCard = ({title, value, icon}) =>(           
         <div className='p-2 sm:p-3 rounded-xl bg-white shadow-sm border border-orange-100 hover:shadow-md transition-all duration-300 hover:border-orange-100 group'>
             <div className='flex items-center gap-2 '>
-                <div className='p-1.5 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20'>
+                <div className='p-1.5 rounded-lg bg-gradient-to-br from-orange-600/10 to-yellow-400/10 group-hover:from-orange-600/20 group-hover:to-yellow-400/20'>
                     {icon}
                 </div>
                 <div className='min-w-0'>
-                    <p className='text-lg sm:text-xl font-bold bg-gradient-to-r from-red-500 to-orange-600 bg-clip-text text-transparent'>
+                    <p className='text-lg sm:text-xl font-bold bg-gradient-to-r from-orange-600 to-yellow-400 bg-clip-text text-transparent'>
                             {value}
                     </p>
                     <p className='text-xs text-gray-500 font-medium'>
@@ -92,7 +92,7 @@ const Layout = ({user , onLogout  }) => {
         return(
             <div className='min-h-screen bg-gray-50 p-6 flex items-center justify-center'>
                 <div className='flex items-center flex-col px-8 md:px-32 bg-red-50 text-red-600 p-4 rounded-xl border border-red-100 max-w-md '>
-                    <p className='font-medium mb-2'>Error Loading tasks</p>
+                    <p className='font-medium mb-2'>Error Loading Tasks</p>
                     <p className='text-sm'>{error} </p>
 
                     <button onClick={fetchTasks} className='mt-4 py-2 px-4 bg-red-100 text-red-600 rounded-lg 
@@ -139,14 +139,14 @@ const Layout = ({user , onLogout  }) => {
                                 Task Progress
                             </span>
 
-                            <span className='text-xs bg-orange-100 text-orange-700 px-1.5 py-0.5 sm:px-2 rounded-full'>
+                            <span className='text-xs bg-orange-100 text-orange-600 px-1.5 py-0.5 sm:px-2 rounded-full'>
                                {stats.completedTasks}/{stats.totalCount}
                             </span>
                          </div>
 
                          <div className='relative pt-1.5 items-center'>
                             <div className='flex-1 h-2 sm:h-3 bg-orange-100 rounded-full overflow-hidden'>
-                                <div className='h-full bg-gradient-to-r from-red-500 to-orange-600 transition-all duration-500' 
+                                <div className='h-full bg-gradient-to-r from-orange-600 to-yellow-400 transition-all duration-500' 
                                   style={{width:`${stats.completionPercentage}%`}}
                                 />
                             </div>

@@ -21,8 +21,8 @@ const Login = ({onSubmit,onSwitchMode}) => {
     const url = 'http://localhost:4000'
 
     useEffect(()=>{
-      const token = localStorage.getItem('token')
-      const userId = localStorage.getItem('userId')
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token')
+      const userId = localStorage.getItem('userId') || sessionStorage.getItem('userId')
       if(token){
         (async () => {
           try {
@@ -35,10 +35,12 @@ const Login = ({onSubmit,onSwitchMode}) => {
               navigate('/')
           }else{
             localStorage.clear()
+            sessionStorage.clear()
           }
             } catch(err)  {
             toast.error("Failed to fetch user data, please log in again")
             localStorage.clear()
+            sessionStorage.clear()
           }
         })()
       }
@@ -46,11 +48,6 @@ const Login = ({onSubmit,onSwitchMode}) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      
-      if(!rememberMe){
-        toast.error('You must enable "Remember Me" to login')
-        return
-      }
       setLoading(true)      
 
       try {
@@ -60,9 +57,14 @@ const Login = ({onSubmit,onSwitchMode}) => {
           throw new Error( data.message || "Login failed, please try again")
         }
         
-        localStorage.setItem("token", data.token)
+        if(rememberMe){
+          localStorage.setItem("token", data.token)
+          localStorage.setItem("userId", data.user.id)
+        } else {
+          sessionStorage.setItem("token", data.token)
+          sessionStorage.setItem("userId", data.user.id)
+        }
 
-        localStorage.setItem("userId", data.user.id)
         setFormData(INITIAL_FORM)
         
         onSubmit?.({token: data.token, userId: data.user.id, ...data.user})
@@ -138,7 +140,6 @@ const Login = ({onSubmit,onSwitchMode}) => {
             checked={rememberMe}
             onChange={()=>setRememberMe(!rememberMe)} 
             className='h-4 w-4 text-orange-500 focus:ring-orange-400 border-gray-300 rounded'
-            required
             />
             <label htmlFor='rememberMe' className='ml-2 block text-sm text-gray-700'>Remember Me</label>
         </div>

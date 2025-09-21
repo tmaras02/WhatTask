@@ -12,7 +12,7 @@ const API_BASE = 'http://localhost:4000/api/tasks'
 const Dashboard = () => {
 
   const {tasks, refreshTasks} = useOutletContext() 
-  const [showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [selectedTask, setSelectedTask] = useState(null)
   const [filter, setFilter] = useState('all')
 
@@ -27,23 +27,34 @@ const Dashboard = () => {
   }), [tasks])
 
   //FILTER TASKS
-  const filteredTasks = useMemo(() => tasks.filter(task => {
-      const dueData = new Date(task.dueDate)
-      const today = new Date()
-      const nextWeek = new Date(today); nextWeek.setDate(today.getDate() + 7)
-      switch (filter) {
-        case 'today':
-          return dueData.toDateString() === today.toDateString();
-        case "week" :
-          return dueData >= today && dueData <= nextWeek;
-        case 'high':
-        case 'medium':
-        case 'low':
-            return task.priority?.toLowerCase() === filter;
-        default:
-          return true; // For 'all' or any other filter
-      }
-  }), [tasks, filter]);
+  const filteredTasks = useMemo(() => {
+  const filtered = tasks.filter(task => {
+    const dueData = new Date(task.dueDate)
+    const today = new Date()
+    const nextWeek = new Date(today); nextWeek.setDate(today.getDate() + 7)
+
+    switch (filter) {
+      case 'today':
+        return dueData.toDateString() === today.toDateString();
+      case 'week':
+        return dueData >= today && dueData <= nextWeek;
+      case 'high':
+      case 'medium':
+      case 'low':
+        return task.priority?.toLowerCase() === filter;
+      default:
+        return true; // 'all' or any other filter
+    }
+  });
+
+  // sort by priority (high → medium → low)
+  const priorityOrder = { high: 1, medium: 2, low: 3 };
+  return filtered.sort((a, b) => {
+    const pa = priorityOrder[a.priority?.toLowerCase()] || 4;
+    const pb = priorityOrder[b.priority?.toLowerCase()] || 4;
+    return pa - pb;
+  });
+}, [tasks, filter]);
 
   //SAVE TASKS
   const handleTaskSave = useCallback(async (taskData)=>{
@@ -69,7 +80,7 @@ const Dashboard = () => {
             </h1>
             <p className='text-sm text-gray-500 mt-1 ml-7 truncate'>Manage Your tasks efficiently</p>
          </div>
-          <button onClick={() => setShowModel(true)} className={ADD_BUTTON} >
+          <button onClick={() => setShowModal(true)} className={ADD_BUTTON} >
             <Plus size={18}/>
             Add New Task
           </button>

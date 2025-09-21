@@ -13,6 +13,10 @@ const Navbar = ({user = {}, onLogout}) => {
     const handleLogout = () => {
         setMenuOpen(false)
         onLogout()
+
+        localStorage.clear();
+        sessionStorage.clear();
+        navigate("/login");
     }
 
     useEffect(()=>{
@@ -32,13 +36,13 @@ const Navbar = ({user = {}, onLogout}) => {
                 onClick={() => navigate('/')}>
                 {/*LOGO*/}
                 <div className=' relative w-10 h-10 flex items-center rounded-xl bg-gradient-to-br 
-                    from-red-500 via-orange-500 to-yellow-500 shadow-lg group-hover:shadow-orange-300/50
+                    from-orange-600 to-yellow-400 shadow-lg group-hover:shadow-orange-300/50
                     group-hover:scale-105 transition-all duration-300 '>
                     <BadgeQuestionMark className='  w-10 h-8 text-white'/>
                 </div>
                 {/* BRAND NAME */}
-                <span className=' text-2x1 font-extrabold bg-gradient-to-r from-red-500 via-orange-500
-                to-yellow-500 bg-clip-text text-transparent tracking-wide'>
+                <span className=' text-2x1 font-extrabold bg-gradient-to-r from-orange-600
+                to-yellow-400 bg-clip-text text-transparent tracking-wide'>
                     WhatTask
                 </span>
             </div>
@@ -62,7 +66,7 @@ const Navbar = ({user = {}, onLogout}) => {
                                 shadow-sm' />
                             ) : (
                                 <div className=' w-8 h-8 flex items-center justify-center rounded-full
-                                bg-gradient-to-br from-red-500 to-yellow-600 text-white font-semibold
+                                bg-gradient-to-br from-orange-600 to-yellow-400 text-white font-semibold
                                 shadow-md'>
                                     {user.name?.[0]?.toUpperCase() || 'U'}
                                 </div>

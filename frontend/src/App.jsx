@@ -7,7 +7,7 @@ import SignUp from './components/SignUp.jsx'
 import { Navigate } from 'react-router-dom'
 import Dashboard from './pages/Dashboard.jsx'
 import Pending from './pages/Pending.jsx'
-import CompletePage from './pages/CompletePage.jsx'
+import CompletedPage from './pages/CompletedPage.jsx'
 import Profile from './pages/Profile.jsx'
 
 function App() {
@@ -63,7 +63,7 @@ function App() {
        <Route element={currentUser ? <ProtectedLayout/> : <Navigate to='/login' replace/>}>
         <Route path='/' element={<Dashboard/>}/>
         <Route  path='pending' element={<Pending/>}/>
-        <Route path='complete' element={<CompletePage/>}/>
+        <Route path='complete' element={<CompletedPage/>}/>
         <Route path='profile' element={<Profile user={currentUser} setCurrentUser = {currentUser} onLogout={handelLogout}/>}/>  
        </Route>
 

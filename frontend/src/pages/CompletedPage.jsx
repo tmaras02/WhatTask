@@ -5,7 +5,7 @@ import { CheckCircle2, Filter } from 'lucide-react'
 import { useOutletContext } from 'react-router-dom'
 import TaskItem from '../components/TaskItem.jsx'
 
-const CompletePage = () => {
+const CompletedPage = () => {
   const {tasks,refreshTasks}= useOutletContext()
   const [sortBy,setSortBy] = useState('newest')
 
@@ -99,4 +99,4 @@ const CompletePage = () => {
   )
 }
 
-export default CompletePage
+export default CompletedPage
