@@ -8,7 +8,7 @@ Delete Tasks – Remove tasks that are no longer needed.
 Mark as Complete – Keep track of completed tasks.
 Responsive Design – Works well on both desktop and mobile devices.
 
-TECH STACK
+TECH STACK:
 Frontend: React, Vite, Tailwind CSS
 Backend: Node.js, Express
 Database: MongoDB
