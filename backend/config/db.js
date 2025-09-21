@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb+srv://tmaras02:WhatTask@cluster0.ctque4k.mongodb.net/WhatTask')
+        await mongoose.connect('url')
         .then (() => console.log('DB CONNECTED'))
     } 
     catch (err) {
