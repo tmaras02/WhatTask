@@ -114,7 +114,7 @@ const Sidebar = ({user,tasks}) => {
 
                  <div className='flex items-center gap-3 mb-6'>
                     <div className='w-10 h-10 rounded-full bg-gradient-to-br from-orange-600 to-yellow-400 flex items-center justify-center text-white shadow-md font-bold'>
-                       {initials}
+                       {initial}
                     </div>
 
                     <div>

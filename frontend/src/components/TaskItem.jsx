@@ -52,13 +52,13 @@ const TaskItem = ({task, onRefresh, onLogout, showCompleteCheckbox = true}) => {
 
   const handleAction = (action)=>{
    setShowMenu(false)
-   if(action==='edit') setShowEditModal(true)
-   if(action==='delete') handelDelete()
+   if(action === 'edit') setShowEditModal(true)
+   if(action === 'delete') handleDelete()
   }
 
-  const handelDelete = async () =>{
+  const handleDelete = async () =>{
     try {
-      await axios.delete(`${API_BASE}/${task._id}/gp` , {headers:getAuthHeaders()})
+      await axios.delete(`${API_BASE}/${task._id}/gp` , {headers: getAuthHeaders()})
       onRefresh?.()
     } catch (error) {
       
@@ -66,15 +66,16 @@ const TaskItem = ({task, onRefresh, onLogout, showCompleteCheckbox = true}) => {
     }
   }
 
-  const handelSave = async(updatedTask)=>{
+  const handleSave = async(updatedTask) => {
     try {
-      const payload =(({title,description,periorty,dueDate})=>({title,description,periorty,dueDate}))(updatedTask)
+      const payload =(({title,description,periorty,dueDate}) => ({title,description,periorty,dueDate}))(updatedTask)
       await axios.put(`${API_BASE}/${task._id}/gp` , payload ,
-        {headers:getAuthHeaders})
-        onRefresh?.()
-        setShowEditModal(false)
-    } catch (error) {
-      if(error.response?.status === 401) onLogout?.()
+        {headers: getAuthHeaders()})
+      setShowEditModal(false)
+      onRefresh?.()
+    } 
+    catch (err) {
+      if(err.response?.status === 401) onLogout?.()
     }
   }
 
@@ -107,16 +108,15 @@ const TaskItem = ({task, onRefresh, onLogout, showCompleteCheckbox = true}) => {
 
       <div className={TI_CLASSES.rightContainer}>
          <div className='relative'>
-           <button onClick={()=>setShowMenu(!showMenu)} className={TI_CLASSES.menuButton}>
+           <button onClick={() => setShowMenu(!showMenu)} 
+            className={TI_CLASSES.menuButton}>
             <MoreVertical size={18} className='w-4 h-4 sm:w-5 sm:h-5'/>
            </button>
 
            {showMenu && (
             <div className={TI_CLASSES.menuDropdown}>
                 {MENU_OPTIONS.map(opt => (
-                  <button
-                   key={opt.action}
-                   onClick={() => handleAction(opt.action)}
+                  <button key={opt.action} onClick={() => handleAction(opt.action)}
                    className='w-full px-3 sm:px-4 py-2 text-left text-xs sm:text-sm hover:bg-orange-50 flex 
                    items-center gap-2 transition-colors duration-200'>
                     {opt.icon}{opt.label}
@@ -140,12 +140,12 @@ const TaskItem = ({task, onRefresh, onLogout, showCompleteCheckbox = true}) => {
          </div>
       </div>
     </div>
+
     <TaskModal
      isOpen={showEditModal}
-     onClose={()=>setShowEditModal(false)}
+     onClose={() => setShowEditModal(false)}
      taskToEdit={task}
-     onSave={handelSave}
-    />
+     onSave={handleSave}/>
    </>
   )
 }

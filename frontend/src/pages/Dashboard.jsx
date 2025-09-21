@@ -161,8 +161,7 @@ const Dashboard = () => {
           </div>
 
           {/* ADD TASK DESKTOP */}
-          <div 
-              onClick={()=> setShowModal(true)}
+          <div onClick={()=> setShowModal(true)}
               className='hidden md:flex items-center justify-center p-4 border-2 border-dashed border-orange-200 
               rounded-xl hover:border-orange-400 bg-orange-50/50 cursor-pointer transition-colors'>     
               <Plus className='w-5 h-5 text-orange-500 mr-2'/>
